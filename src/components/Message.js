@@ -1,4 +1,4 @@
-import React, { Component, useContext} from 'react'
+import React, { Component} from 'react'
 
 
 
@@ -17,7 +17,6 @@ class Message extends Component {
     checkSelected = (e) => {
        
         this.props.messageSelectButtonClicked(e.target.id);
-  
     }
     
    
@@ -47,10 +46,8 @@ class Message extends Component {
 
     }
 
-    changeStar=()=>{
-        this.setState(
-            {starred: (this.props.message.starred===true?false:true)}
-        )
+    changeStar=(e)=>{
+        this.props.starSelectButtonClicked(e.target.id)
     }
 
 
@@ -63,7 +60,7 @@ class Message extends Component {
                             <input type="checkbox" id={this.props.message.id} checked={this.props.message.selected} onClick={this.checkSelected} />
                         </div>
                         <div class="col-xs-2">
-                            <i className={this.adjustClassNameStar()} onClick={this.changeStar}></i>
+                            <i id={this.props.message.id} className={this.adjustClassNameStar()} onClick={this.changeStar}></i>
                         </div>
                     </div>
                 </div>
