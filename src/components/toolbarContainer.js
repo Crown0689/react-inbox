@@ -37,6 +37,10 @@ class ToolbarContainer extends Component {
         return this.props.messageList.filter(messages => messages.read === false).length
     }
 
+    showComposeMessage=()=>{
+        this.props.showComposeMessage();
+    }
+
 
     render() {
         if (this.props.messageList.every(message => message.selected)) {
@@ -52,6 +56,10 @@ class ToolbarContainer extends Component {
                             <span class="badge badge">{this.calculateUnreadMessages()}</span>
                         unread messages
                         </p>
+
+                        <a class="btn btn-danger">
+                            <i class="fa fa-plus" onClick={this.showComposeMessage}></i>
+                        </a>
 
                         <button class="btn btn-default" onClick={this.changeSelectionState}>
                             <i class="fa fa-check-square-o"></i>
@@ -94,6 +102,10 @@ class ToolbarContainer extends Component {
                             unread messages
                         </p>
 
+                        <a class="btn btn-danger" onClick={this.showComposeMessage}>
+                            <i class="fa fa-plus"></i>
+                        </a>
+
                         <button class="btn btn-default" onClick={this.changeSelectionState}>
                             <i class="fa fa-minus-square-o"></i>
                         </button>
@@ -135,6 +147,10 @@ class ToolbarContainer extends Component {
                             <span class="badge badge">{this.calculateUnreadMessages()}</span>
                             unread messages
                         </p>
+
+                        <a class="btn btn-danger" onClick={this.showComposeMessage}>
+                            <i class="fa fa-plus"></i>
+                        </a>
 
                         <button class="btn btn-default" onClick={this.changeSelectionState}>
                             <i class="fa fa-square-o"></i>

@@ -32,7 +32,7 @@ class Message extends Component {
   
 
     adjustClassNameStar = () => {
-        const star = (this.props.message.starred === true ? " star fa fa-star-o" : " star fa fa-star")
+        const star = (this.props.message.starred === false ? " star fa fa-star-o" : " star fa fa-star")
         return star
     }
 
@@ -48,6 +48,7 @@ class Message extends Component {
 
     changeStar=(e)=>{
         this.props.starSelectButtonClicked(e.target.id)
+       
     }
 
 
